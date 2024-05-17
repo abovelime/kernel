@@ -5,9 +5,21 @@
     font-size: 16px;
 }
 
+#active {
+    display: table;
+    width: 100%;
+}
+
+#active label {
+    display: table-cell;
+    width: 1px;
+}
+
 #active input {
     border: none;
     font-size: 16px;
+    display: table-cell;
+    width: 100%;
 }
 
 #active input:focus {
