@@ -49,8 +49,8 @@ function preCheck() {
     const preCheckP2 = document.createElement("p");
     const preCheckP3 = document.createElement("p");
 
-    // init in case of error
-    let preCheckNode2 = document.createTextNode("ERROR 101 : Unable to read bootData [ERROR]");
+    // init
+    let preCheckNode2;
 
     // check for OS being stored
     if (localStorage.osInstalled) {
