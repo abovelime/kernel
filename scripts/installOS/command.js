@@ -3,6 +3,7 @@ let response;
 
 const kernel = document.getElementById("kernel");
 const active = document.getElementById("active");
+const onboot = document.getElementById("onboot");
 
 let command = document.getElementById("command");
 command.addEventListener("keydown", function (e) {
@@ -16,8 +17,6 @@ function printCommand() {
     const answerDiv1 = document.createElement('div');
     answerDiv1.setAttribute('id', 'answer'+answerCount);
 
-    answerCount++;
-
     kernel.insertBefore(answerDiv1, active);
 
     // preserve command
@@ -27,12 +26,12 @@ function printCommand() {
     previousCommandP.appendChild(previousCommandNode);
     previousCommandP.setAttribute('id', 'previousCommand'+answerCount);
 
-    answerDiv1.appendChild(previousCommandP);
+    kernel.insertBefore(previousCommandP, answerDiv1);
 
 
     // COMMAND CHECK HERE
 
-    commandCheck()
+    let response = commandCheck();
 
     const responseP = document.createElement('p');
     const responseNode = document.createTextNode(response);
@@ -44,6 +43,7 @@ function printCommand() {
     // Clear Input
 
     command.value = "";
+    answerCount++;
 
 }
 
@@ -56,12 +56,12 @@ function commandCheck() {
     // checks for the help arg
     if (args[0] === "help") {
         if (args[1] === "installos") {
-            response = "Hello! Welcome to the AboveLime Kernel! This is in the installOS sector where you get to install your operating system! This is built on my bad javascript code and is really unreliable. Project is on GitHub. Use the command, 'installos' to start the installer! Thanks for tuning in. AboveLime - Liam";
+            return "Hello! Welcome to the AboveLime Kernel! This is in the installOS sector where you get to install your operating system! This is built on my bad javascript code and is really unreliable. Project is on GitHub. Use the command, 'installos' to start the installer! Thanks for tuning in. AboveLime - Liam";
         } else {
-            response = "Args presented: help, "+args[1]+", and others. help needs the args 'help', and the type of help you need. Please retry.";
+            return "Args presented: help, "+args[1]+", and others. help needs the args 'help', and the type of help you need. Please retry.";
         }
     } else {
-        response = "Unknown args presented: "+args+", please try again.";
+        return "Unknown args presented: "+args+", please try again.";
     }
 
 }

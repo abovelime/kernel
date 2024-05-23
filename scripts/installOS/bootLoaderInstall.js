@@ -2,7 +2,7 @@
 // pls don't ask how I made it, I can't tell you man
 // ver 1.0 prelaunch beta
 
-const onBoot = document.getElementById("on-boot");
+const onBoot = document.getElementById("onboot");
 
 
 function onLoad() {
