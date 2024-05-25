@@ -8,15 +8,17 @@
     <title>KernelUI v1.0 - OS Unknown</title>
     <link type="text/css" rel="stylesheet" href="styles/main.css" />
 </head>
-<body onload="onLoad()">
+<body id="body">
     <div id="kernel">
         <div id="onboot"></div>
         <div id="active">
             <label for="command" id="user-data">root@installOS&nbsp;~&nbsp;%&nbsp;</label>
-            <input id="command" maxlength="35" />
+            <input id="command" />
         </div>
     </div>
+    <script src="scripts/installOS/commands/help.js" type="module"></script>
+
     <script src="scripts/installOS/bootLoaderInstall.js"></script>
-    <script src="scripts/installOS/command.js"></script>
+    <script src="scripts/installOS/command.js" type="module"></script>
 </body>
 </html>

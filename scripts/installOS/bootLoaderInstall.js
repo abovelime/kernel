@@ -3,9 +3,9 @@
 // ver 1.0 prelaunch beta
 
 const onBoot = document.getElementById("onboot");
+const body = document.getElementById("body")
 
-
-function onLoad() {
+function bootLoader() {
 
     if (localStorage.osInstalled) {
         // send to os
@@ -41,3 +41,5 @@ function onLoad() {
     }
 
 }
+
+body.onload = bootLoader();
