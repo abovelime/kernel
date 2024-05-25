@@ -53,12 +53,20 @@ function commandCheck() {
     let args = command.value.split(" ");
     console.log(args[0]);
 
+    const allArgs = function () {
+        let x = "null";
+        for (let i = 1; i < args.length; i++) {
+            x += args[i];
+        }
+        return x;
+    }  
+
     // checks for the help arg
     if (args[0] === "help") {
         if (args[1] === "installos") {
             return "Hello! Welcome to the AboveLime Kernel! This is in the installOS sector where you get to install your operating system! This is built on my bad javascript code and is really unreliable. Project is on GitHub. Use the command, 'installos' to start the installer! Thanks for tuning in. AboveLime - Liam";
         } else {
-            return "Args presented: help, "+args[1]+", and others. help needs the args 'help', and the type of help you need. Please retry.";
+            return "Args presented: help, "+allArgs+". 'help' needs the args 'help', and the type of help you need. Please retry.";
         }
     } else {
         return "Unknown args presented: "+args+", please try again.";
